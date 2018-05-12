@@ -1,0 +1,37 @@
+<div class="app-all-information">
+    <div class="app-all-information">
+        <mat-list>
+            <mat-list-item>Дзвінки</mat-list-item>
+            <mat-list-item>Інформація</mat-list-item>
+            <mat-list-item>Типи оцінок</mat-list-item>
+            <mat-list-item>Система оцінювання</mat-list-item>
+        </mat-list>
+
+        <div class="schedule-content">
+        </div>
+    </div>
+    <div class="header">
+        <mat-tab-group *ngIf="tabs.length">
+            <!-- <ng-container> -->
+                <mat-tab *ngFor="let tab of tabs">
+                        <ng-template mat-tab-label>
+                            {{tab.name}}
+                        </ng-template>
+                </mat-tab>
+            <!-- </ng-container> -->
+            <!-- <mat-tab>
+                <ng-template mat-tab-label>
+                    <button mat-raised-button (click)="add()">
+                        Додати розклад
+                    </button>
+                </ng-template>
+            </mat-tab> -->
+        </mat-tab-group>
+        <!-- *ngIf="!tabs.length" -->
+        <div>
+            <button mat-raised-button (click)="add()">        
+                Додати розклад
+            </button>
+        </div>
+    </div>
+</div>

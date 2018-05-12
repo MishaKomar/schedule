@@ -10,7 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuSideComponent } from './menu-side/menu-side.component';
 import { ContentComponent } from './content/content.component';
 import { ContentHeaderComponent } from './content-header/content-header.component';
-import { ContentMainComponent } from './content-main/content-main.component';
+import { AllInformationComponent } from './all-information/all-information.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { ContentMainComponent } from './content-main/content-main.component';
     MenuSideComponent,
     ContentComponent,
     ContentHeaderComponent,
-    ContentMainComponent
+    AllInformationComponent
   ],
   imports: [
     BrowserModule,

@@ -25,26 +25,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-width: 60px;
-    /* text-align: center; */
+    // min-width: 60px;
+    text-align: center;
     font-size: 0.9em;
     background-color: #aaa;
 }
 .app-menu p {
     padding: 0px 5px;
 }
-.app-content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.app-header-content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.app-main-content {
-    /* display: flex;
-    justify-content: center;
-    flex-direction: column; */
+app-content {
+    width: 100%;
 }
