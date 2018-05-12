@@ -1,0 +1,58 @@
+@media all and (max-width: 860px) {
+    
+}
+@media all and (max-width: 450px) {
+    .intelligent {
+        visibility: hidden;
+    }
+}
+* {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+.space {
+    flex: 1 1 auto;
+}
+.logo {
+    width: 50px;
+    border-radius: 25px;
+    height: 50px;
+    background-color: gray;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.app-component {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+}
+.app-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 60px;
+    /* text-align: center; */
+    font-size: 0.9em;
+    background-color: #aaa;
+}
+.app-menu p {
+    padding: 0px 5px;
+}
+.app-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.app-header-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.app-main-content {
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column; */
+}
