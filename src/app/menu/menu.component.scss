@@ -2,16 +2,9 @@
     
 }
 @media all and (max-width: 450px) {
-    .intelligent {
-        visibility: hidden;
-    }
+
 }
-* {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
-}
-.space {
-    flex: 1 1 auto;
-}
+
 .logo {
     width: 50px;
     border-radius: 25px;
@@ -21,7 +14,6 @@
     background-size: cover;
     background-position: center;
 }
-
 
 .app-component {
     display: flex;
