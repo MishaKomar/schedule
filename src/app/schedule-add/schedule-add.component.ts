@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ScheduleService } from '../services/schedule.service';
 
 @Component({
   selector: 'app-schedule-add',
@@ -22,23 +23,34 @@ export class ScheduleAddComponent implements OnInit {
     breaksCtrls: any[] = [];
 
     constructor(
-            private _formBuilder: FormBuilder
+            private _formBuilder: FormBuilder,
+            private _scheduleService: ScheduleService
         ) {
     }
     ngOnInit () {
         this.formGroup = this._formBuilder.group({
             nameCtrl: ['Розклад 1', Validators.required],
-            firstClassCtrl: [false, Validators.required],
-            secondClassCtrl: [false, Validators.required],
-            thirdClassCtrl: [false, Validators.required],
-            firstLessonCtrl: ['08:30', Validators.required],
-            firstBreakCtrl: ['', Validators.required],
-            secondBreakCtrl: ['', Validators.required],
-            thirdBreakCtrl: ['', Validators.required],
-            fourthBreakCtrl: ['', Validators.required],
-            fifthBreakCtrl: ['', Validators.required],
-            sixthBreakCtrl: ['', Validators.required],
-            seventhBreakCtrl: ['', Validators.required]
+            // firstClassCtrl: [false, Validators.required],
+            // secondClassCtrl: [false, Validators.required],
+            // thirdClassCtrl: [false, Validators.required],
+            firstClassCtrl: [true, Validators.required],
+            secondClassCtrl: [true, Validators.required],
+            thirdClassCtrl: [true, Validators.required],
+            firstLessonCtrl: ['08:00', Validators.required],
+            // firstBreakCtrl: ['', Validators.required],
+            // secondBreakCtrl: ['', Validators.required],
+            // thirdBreakCtrl: ['', Validators.required],
+            // fourthBreakCtrl: ['', Validators.required],
+            // fifthBreakCtrl: ['', Validators.required],
+            // sixthBreakCtrl: ['', Validators.required],
+            // seventhBreakCtrl: ['', Validators.required]
+            firstBreakCtrl: [10, Validators.required],
+            secondBreakCtrl: [10, Validators.required],
+            thirdBreakCtrl: [10, Validators.required],
+            fourthBreakCtrl: [10, Validators.required],
+            fifthBreakCtrl: [10, Validators.required],
+            sixthBreakCtrl: [10, Validators.required],
+            seventhBreakCtrl: [10, Validators.required]
         });
         this.breaksCtrls.push({placeholder: '1-а перерва', ctrlName: 'firstBreakCtrl'});
         this.breaksCtrls.push({placeholder: '2-а перерва', ctrlName: 'secondBreakCtrl'});
@@ -53,17 +65,24 @@ export class ScheduleAddComponent implements OnInit {
         // save the schedule
         let data = {
             name: this.formGroup.controls.nameCtrl.value,
-            firstLesson: this.formGroup.controls.firstLessonCtrl.value,
-            firstBreak: this.formGroup.controls.firstBreakCtrl.value,
-            secondBreak: this.formGroup.controls.secondBreakCtrl.value,
-            thirdBreak: this.formGroup.controls.thirdBreakCtrl.value,
-            fourthBreak: this.formGroup.controls.fourthBreakCtrl.value,
-            fifthBreak: this.formGroup.controls.fifthBreakCtrl.value,
-            sixthBreak: this.formGroup.controls.sixthBreakCtrl.value,
-            seventhBreak: this.formGroup.controls.seventhBreakCtrl.value
+            forClass: {
+                first: this.formGroup.controls.firstClassCtrl.value,
+                second: this.formGroup.controls.secondClassCtrl.value,
+                third: this.formGroup.controls.thirdClassCtrl.value,
+            }, 
+            firstLessonStart: this.formGroup.controls.firstLessonCtrl.value,
+            breaks: [
+                this.formGroup.controls.firstBreakCtrl.value,
+                this.formGroup.controls.secondBreakCtrl.value,
+                this.formGroup.controls.thirdBreakCtrl.value,
+                this.formGroup.controls.fourthBreakCtrl.value,
+                this.formGroup.controls.fifthBreakCtrl.value,
+                this.formGroup.controls.sixthBreakCtrl.value,
+                this.formGroup.controls.seventhBreakCtrl.value
+            ]
         };
-
-        console.log(data);
+        this._scheduleService.add(data)
+        // console.log(data);
     }
     isFormValid() {
         return this.formGroup.controls.nameCtrl.valid && (

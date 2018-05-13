@@ -14,6 +14,8 @@ import { ContentHeaderComponent } from './content-header/content-header.componen
 import { AllInformationComponent } from './all-information/all-information.component';
 import { ScheduleAddComponent } from './schedule-add/schedule-add.component';
 
+import { ScheduleService } from './services/schedule.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { ScheduleAddComponent } from './schedule-add/schedule-add.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ScheduleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

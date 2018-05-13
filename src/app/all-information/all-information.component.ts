@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ScheduleService } from '../services/schedule.service';
+import { ScheduleLessonContainer } from '../models/schedule-lesson-container'
 
 @Component({
   selector: 'app-all-information',
@@ -26,7 +28,7 @@ export class AllInformationComponent {
     // { name: 'Rozklad 3'}
   ]
   constructor(
-
+              public scheduleService: ScheduleService
             ) {
             }
 
@@ -36,5 +38,8 @@ export class AllInformationComponent {
   toggleMenu() {
     // 1-line if statement that toggles the value:
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
+  }
+  stringify(data: ScheduleLessonContainer) {
+    return JSON.stringify(data);
   }
 }

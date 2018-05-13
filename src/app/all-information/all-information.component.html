@@ -11,11 +11,12 @@
         </div>
     </div>
     <div class="header">
-        <mat-tab-group *ngIf="tabs.length">
-            <mat-tab *ngFor="let tab of tabs">
+        <mat-tab-group *ngIf="scheduleService.schedule.length">
+            <mat-tab *ngFor="let schedule of scheduleService.schedule">
                     <ng-template mat-tab-label>
-                        {{tab.name}}
+                        {{schedule.name}}
                     </ng-template>
+                    <p>{{stringify(schedule.lessonsForClasses)}}</p>
             </mat-tab>
         </mat-tab-group>
         <div>
