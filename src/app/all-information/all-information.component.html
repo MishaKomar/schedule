@@ -1,29 +1,16 @@
 <div class="app-all-information">
-    <div class="app-all-information">
-        <mat-list>
-            <mat-list-item>Дзвінки</mat-list-item>
-            <mat-list-item>Інформація</mat-list-item>
-            <mat-list-item>Типи оцінок</mat-list-item>
-            <mat-list-item>Система оцінювання</mat-list-item>
-        </mat-list>
-
-        <div class="schedule-content">
-        </div>
+    <div class="create-button">
+        <button mat-raised-button (click)="toggleMenu()">        
+            Додати розклад
+        </button>
     </div>
-    <div class="header">
-        <mat-tab-group *ngIf="scheduleService.schedule.length">
-            <mat-tab *ngFor="let schedule of scheduleService.schedule">
-                    <ng-template mat-tab-label>
-                        {{schedule.name}}
-                    </ng-template>
-                    <p>{{stringify(schedule.lessonsForClasses)}}</p>
-            </mat-tab>
-        </mat-tab-group>
-        <div>
-            <button mat-raised-button (click)="toggleMenu()">        
-                Додати розклад
-            </button>
-        </div>
-    </div>
+    <mat-tab-group *ngIf="scheduleService.schedule.length">
+        <mat-tab *ngFor="let schedule of scheduleService.schedule">
+                <ng-template mat-tab-label>
+                    {{schedule.name}}
+                </ng-template>
+                <p>{{stringify(schedule.lessonsForClasses)}}</p>
+        </mat-tab>
+    </mat-tab-group>
 </div>
 <app-menu-side [@slideInOut]="menuState" (onToogle)="toggleMenu()"></app-menu-side>

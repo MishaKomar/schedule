@@ -4,35 +4,40 @@
 @media all and (max-width: 450px) {
 
 }
-
-.logo {
-    width: 50px;
-    border-radius: 25px;
-    height: 50px;
-    background-color: gray;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+app-content {
+    width: 100%;
 }
-
 .app-component {
     display: flex;
-    /* justify-content: center; */
     flex-direction: row;
 }
 .app-menu {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    // min-width: 60px;
-    text-align: center;
     font-size: 0.9em;
-    background-color: #aaa;
-}
-.app-menu p {
-    padding: 0px 5px;
-}
-app-content {
-    width: 100%;
-}
+    p {
+        padding: 0px 5px;
+    }
+    .logo {
+        width: 50px;
+        border-radius: 25px;
+        height: 50px;
+        background-color: gray;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 0 0 1em 0;
+    }
+    .mat-expansion-panel-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 4px 24px;
+    }
+    mat-expansion-panel p{
+        cursor: pointer;
+    }
+    mat-expansion-panel p:hover{
+    }
+} 

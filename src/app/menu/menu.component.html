@@ -2,14 +2,68 @@
     <div class="app-menu">
         <div class="logo">
         </div>
-        <p>Профіль школи</p>
-        <p>Навчальний рік</p>
-        <p>Вчителі</p>
-        <p>Класи</p>
-        <p>Учні</p>
-        <p>Календарний план</p>
-        <p>Розклади</p>
-        <p>Архіви</p>
+        <mat-accordion>
+            <mat-expansion-panel><!-- [hideToggle]="true" -->
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Профіль школи
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p><strong>Загальна інформація</strong></p>
+                <p>Предмети</p>
+                <p>Аудиторії</p>
+                <p>Адміністрування системи</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Навчальний рік
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Вчителі
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Класи
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Учні
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Календарний план
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Розклади
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Архіви
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
     <app-content></app-content>
 </div>

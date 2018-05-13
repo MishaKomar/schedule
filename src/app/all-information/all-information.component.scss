@@ -5,15 +5,14 @@
 
 }
 .app-all-information {
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
 }
 .mat-list {
     padding-top: 36px;
 }
-.header {
-    display: flex;
-    flex-direction: row;
+.create-button {
+    margin-bottom: 10px;
 }
 app-menu-side {
     overflow-y: scroll;
