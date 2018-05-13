@@ -13,6 +13,7 @@ import { ContentComponent } from './content/content.component';
 import { ContentHeaderComponent } from './content-header/content-header.component';
 import { AllInformationComponent } from './all-information/all-information.component';
 import { ScheduleAddComponent } from './schedule-add/schedule-add.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 import { ScheduleService } from './services/schedule.service';
 
@@ -24,7 +25,8 @@ import { ScheduleService } from './services/schedule.service';
     ContentComponent,
     ContentHeaderComponent,
     AllInformationComponent,
-    ScheduleAddComponent
+    ScheduleAddComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

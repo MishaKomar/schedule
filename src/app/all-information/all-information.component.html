@@ -1,4 +1,4 @@
-<div class="app-all-information">
+<div>
     <div class="create-button">
         <button mat-raised-button (click)="toggleMenu()">        
             Додати розклад
@@ -9,7 +9,9 @@
                 <ng-template mat-tab-label>
                     {{schedule.name}}
                 </ng-template>
-                <p>{{stringify(schedule.lessonsForClasses)}}</p>
+                <div class="app-schedule">
+                    <app-schedule *ngFor="let lessons of schedule.lessonsForClasses" [lessonContainer]="lessons"></app-schedule>
+                </div>
         </mat-tab>
     </mat-tab-group>
 </div>

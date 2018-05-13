@@ -1,0 +1,8 @@
+<div>
+    <p>{{lessonContainer.label}}</p>
+    <div *ngFor="let lesson of lessonContainer.lessons">
+        <span>{{lesson.number}}</span>
+        <span>{{lesson.start}} - {{lesson.end}} | {{lesson.duration}} хв</span>
+        <span> {{lesson.pause}}</span>
+    </div>
+</div>
