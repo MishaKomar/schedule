@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (ngSubmit)="addSchedule(formData)">
+    <mat-form-field>
+        <input matInput type="text" maxlength="30" formControlName="nameCtrl" placeholder="Назва розкладу" required>
+        <mat-error *ngIf="formGroup.controls.nameCtrl.invalid">{{getErrorMessage(formGroup.controls.nameCtrl)}}</mat-error>
+    </mat-form-field>
+    <div>
+        <p class="checkboxes-title">Одночасно згенервати розклад для:</p>
+        <div class="checkboxes-container">
+            <mat-checkbox formControlName="firstClassCtrl">1 класи</mat-checkbox>
+            <mat-checkbox formControlName="secondClassCtrl">2-4 класи</mat-checkbox>
+            <mat-checkbox formControlName="thirdClassCtrl">5-11 класи</mat-checkbox>
+        </div>
+    </div>
+    <br>
+    <mat-form-field>
+        <input matInput type="time" step="300" placeholder="Початок 1-го уроку" formControlName="firstLessonCtrl" required>
+        <mat-error *ngIf="formGroup.controls.firstLessonCtrl.invalid">{{getErrorMessage(formGroup.controls.firstLessonCtrl)}}</mat-error>        
+    </mat-form-field>
+    <mat-form-field *ngFor="let breakCtrl of breaksCtrls">
+        <mat-select placeholder="{{breakCtrl.placeholder}}" formControlName="{{breakCtrl.ctrlName}}" required>
+            <mat-option *ngFor="let break of breaks" [value]="break.value">
+            {{ break.label }}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.controls[breakCtrl.ctrlName].invalid">{{getErrorMessage(formGroup.controls[breakCtrl.ctrlName])}}</mat-error>        
+    </mat-form-field>
+    <div>
+        <button mat-raised-button [disabled]="!isFormValid()">
+            Згенерувати розклад
+        </button>            
+    </div>
+</form>

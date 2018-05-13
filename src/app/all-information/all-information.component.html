@@ -12,26 +12,17 @@
     </div>
     <div class="header">
         <mat-tab-group *ngIf="tabs.length">
-            <!-- <ng-container> -->
-                <mat-tab *ngFor="let tab of tabs">
-                        <ng-template mat-tab-label>
-                            {{tab.name}}
-                        </ng-template>
-                </mat-tab>
-            <!-- </ng-container> -->
-            <!-- <mat-tab>
-                <ng-template mat-tab-label>
-                    <button mat-raised-button (click)="add()">
-                        Додати розклад
-                    </button>
-                </ng-template>
-            </mat-tab> -->
+            <mat-tab *ngFor="let tab of tabs">
+                    <ng-template mat-tab-label>
+                        {{tab.name}}
+                    </ng-template>
+            </mat-tab>
         </mat-tab-group>
-        <!-- *ngIf="!tabs.length" -->
         <div>
-            <button mat-raised-button (click)="add()">        
+            <button mat-raised-button (click)="toggleMenu()">        
                 Додати розклад
             </button>
         </div>
     </div>
 </div>
+<app-menu-side [@slideInOut]="menuState" (onToogle)="toggleMenu()"></app-menu-side>
