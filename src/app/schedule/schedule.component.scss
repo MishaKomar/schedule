@@ -1,0 +1,31 @@
+h4  {
+    margin-top: auto;
+}
+.lesson {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-around;
+    padding: 0.4em 0;
+    // width: 200px;
+    font-size: 0.9em;
+    div {
+        margin: 0 0.5em;
+    }
+    .duration {
+        border-left: 1px #ccc solid;
+        padding-left: 0.5em;
+        margin-left: 0;
+    }
+}
+.pause {
+    padding: 0.5em 1em;
+    text-align: right;
+    // background-color: #ddd;
+    font-size: 0.9em;
+    .budge {
+        border-radius: 25px;
+        background-color: #aaa;
+        font-size: 0.8em;
+        padding: 0.4em;
+    }
+}

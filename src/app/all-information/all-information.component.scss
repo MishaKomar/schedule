@@ -13,6 +13,9 @@
 .app-schedule {
     display: flex;
     flex-direction: row;
+    .schedule {
+        margin: 1em;
+    }
 }
 app-menu-side {
     overflow-y: scroll;

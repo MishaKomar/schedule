@@ -1,8 +1,21 @@
 <div>
-    <p>{{lessonContainer.label}}</p>
+    <h4>{{lessonContainer.label}}</h4>
     <div *ngFor="let lesson of lessonContainer.lessons">
-        <span>{{lesson.number}}</span>
-        <span>{{lesson.start}} - {{lesson.end}} | {{lesson.duration}} хв</span>
-        <span> {{lesson.pause}}</span>
+        <div class="lesson">
+            <div>
+                <span>{{lesson.number}}</span>
+            </div>
+            <div>
+                <span>{{lesson.start}} - {{lesson.end}}</span>
+            </div>
+            <div class="duration"> 
+                {{lesson.duration}} хв
+            </div>
+        </div>
+        <div class="pause">
+            <span *ngIf="lesson.number != 3">перерва</span>
+            <span *ngIf="lesson.number == 3">Велика перерва</span>
+            <span class="budge">{{lesson.pause}}</span>
+        </div>
     </div>
 </div>

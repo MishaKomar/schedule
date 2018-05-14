@@ -10,7 +10,7 @@
                     {{schedule.name}}
                 </ng-template>
                 <div class="app-schedule">
-                    <app-schedule *ngFor="let lessons of schedule.lessonsForClasses" [lessonContainer]="lessons"></app-schedule>
+                    <app-schedule class="schedule" *ngFor="let lessons of schedule.lessonsForClasses" [lessonContainer]="lessons"></app-schedule>
                 </div>
         </mat-tab>
     </mat-tab-group>
