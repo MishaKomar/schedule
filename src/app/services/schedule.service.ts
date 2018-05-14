@@ -30,17 +30,17 @@ export class ScheduleService {
         let label = '5-11 класи';
         let value = 'third';
         let lessonContainers = [];
-        if (data.forClass.first) {
+        if (data.forClass.third) {
             let thirdLesson = new ScheduleLessonContainer(  // create schedule for 5-11 classes
                 label,
                 value, 
                 data.firstLessonStart, 
                 this.thirdClassesLessonDuration,
-                this.thirdClassesLessonDuration - this.thirdClassesLessonDuration,
+                this.getAdditionalDuration(data.forClass, value),
                 data.breaks
             );
             lessonContainers.unshift(thirdLesson);
-        } if (data.forClass.first) {
+        } if (data.forClass.second) {
             label = '2-4 класи';  
             value = 'second';      
             let secondLesson = new ScheduleLessonContainer( // create schedule for 2-4 classes
@@ -48,7 +48,7 @@ export class ScheduleService {
                 value,
                 data.firstLessonStart, 
                 this.secondClassesLessonDuration,
-                this.thirdClassesLessonDuration - this.secondClassesLessonDuration,
+                this.getAdditionalDuration(data.forClass, value),
                 data.breaks
             );
             lessonContainers.unshift(secondLesson);
@@ -61,7 +61,7 @@ export class ScheduleService {
                 value,
                 data.firstLessonStart, 
                 this.firstClassLessonDuration,
-                this.thirdClassesLessonDuration - this.firstClassLessonDuration,
+                this.getAdditionalDuration(data.forClass, value),
                 data.breaks
             );
             lessonContainers.unshift(firstLesson);            
@@ -70,5 +70,29 @@ export class ScheduleService {
         let newSchedule = new Schedule(data.name, lessonContainers);
         this.schedule.push(newSchedule);
         console.log(JSON.stringify(this.schedule))
+    }
+
+    private getAdditionalDuration(selectedClasses: {
+        first: boolean,
+        second: boolean,
+        third: boolean,
+    }, toClass: string) {
+        if (toClass == 'first') {
+            if (selectedClasses.third) {
+                return this.thirdClassesLessonDuration - this.firstClassLessonDuration;
+            } else if (selectedClasses.second) {
+                return this.secondClassesLessonDuration - this.firstClassLessonDuration                
+            } else {
+                return 0;
+            }
+        } else if (toClass == 'second') {
+            if (selectedClasses.third) {
+                return this.thirdClassesLessonDuration - this.secondClassesLessonDuration;
+            } else {
+                return 0;                
+            }
+        } else if (toClass == 'third') {
+            return 0;
+        }
     }
 }
